@@ -1,58 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
-
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import HomePage from "./Pages/HomePage";
+import UsersList from "./Pages/UsersList";
+import LoginPage from "./Pages/LoginPage";
+import { Navigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
 function App() {
+
+  const visiterdata = useSelector((state)=>{
+    return state.user.auth[0]
+  })
+  console.log("visitoe",visiterdata);
+
+  // if(visiterdata===true){
+  //   setUser(true)
+  //   console.log("djvbjvb",user);
+  // }else{
+  //   setUser(false)
+  // }
+ 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+
+      <Routes>
+        {!visiterdata && (<>
+            <Route exact path="/" element={<LoginPage  />} />
+            <Route exact path="/register" element={<HomePage />} />
+            <Route exact path="*" element={<Navigate to={"/"} />} />
+        </>)}
+        {visiterdata && (<>
+            <Route exact path="/users" element={<UsersList />} />
+            <Route exact path="*" element={<Navigate to={"/users"} />} />
+        </>)}
+        {/* <Route exact path="/" element={<LoginPage  />} />
+        <Route exact path="/register" element={<HomePage />} />
+        <Route exact path="/users" element={<UsersList />} /> */}
+      </Routes>
+    </>
   );
 }
 
 export default App;
+
+
