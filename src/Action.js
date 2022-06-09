@@ -19,3 +19,31 @@ export const userlogout =(num)=>{
     }
 }
 
+export const userDelete =(id)=>{
+    return{
+        type:'DELETE_USER',
+        payload:id
+    }
+}
+
+export const userInfo =(id)=>{
+    return{
+        type:'USER_USER',
+        payload:id
+    }
+}
+
+export const userUpdate =(data)=>{
+    return{
+        type:'UPDATE_USER',
+        payload:data
+    }
+}
+
+export const List =(email)=>{
+    return{
+        type:'List_USER',
+        payload:email
+    }
+}
+

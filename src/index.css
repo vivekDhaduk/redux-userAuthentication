@@ -100,4 +100,7 @@ body {
 /* login button hover effect ========================================== end  */
 
 
-
+.btn{
+  width: 80px;
+  margin: 0 8PX;
+}

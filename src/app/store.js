@@ -11,13 +11,31 @@ const persistConfig = {
 const commonData = {
   user:{
     items:[{
+      id:0,
       name:'test',
       email:'test@gmail.com',
-      password:'test1234',
+      password:'test123',
+      age:"18",
+      phoneno:"95949395291"
+    },{
+      id:1,
+      name:'dummy',
+      email:'dummy@gmail.com',
+      password:'dummy123',
+      age:"18",
+      phoneno:"12131546152"
     }],
-    auth:false
+    auth:false,
+    
+    list:{
+      id:'',
+      name:'',
+      email:'',
+      password:'',
+      age:"",
+      phoneno:""
+    }
   },
-  
 }
 
 const persistedReducer = persistReducer(persistConfig,rootReducer);

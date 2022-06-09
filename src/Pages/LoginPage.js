@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { userlogin } from "../Action";
+import { userlogin , List} from "../Action";
 
 const LoginPage = () => {
   const users = useSelector((state)=>{
@@ -14,11 +14,12 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
 
-function login(){
+function login(user){
   toast.success("Login Success");
   navigate("/users");
   
   dispatch(userlogin(true))
+  dispatch(List(user))
 }
 
   const handleSubmit = (e) => {
@@ -27,7 +28,7 @@ function login(){
     e.preventDefault();
     for(let i=0;i<users.length;i++){
       if (email === users[i].email && password === users[i].password) {
-        return login()
+        return login(users[i])
       } 
     }
     toast.error("Invalid Email OR password");

@@ -8,6 +8,7 @@ import { Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
+import EditUser from "./Pages/EditUser";
 function App() {
 
   const visiterdata = useSelector((state)=>{
@@ -46,6 +47,8 @@ function App() {
         {visiterdata && (<>
             <Route exact path="/users" element={<UsersList />} />
             <Route exact path="*" element={<Navigate to={"/users"} />} />
+            <Route exact path="/register" element={<HomePage />} />
+            <Route exact path="/edituser/:id" element={<EditUser />} />
         </>)}
         {/* <Route exact path="/" element={<LoginPage  />} />
         <Route exact path="/register" element={<HomePage />} />
