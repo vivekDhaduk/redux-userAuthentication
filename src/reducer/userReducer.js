@@ -13,7 +13,7 @@ const userReducer = (state = [], action) => {
     case "UPDATE_USER":
       return {
         ...state,
-        items: state.items.map((user)=> user.id == action.payload.id ? action.payload: user)
+        items: state.items.map((user)=> user.id === action.payload.id ? action.payload: user)
       };
     case "LOGIN_USER":
       return {
