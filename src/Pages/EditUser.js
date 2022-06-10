@@ -16,15 +16,15 @@ const EditUser = () => {
     
       const {id} = useParams()
       console.log(id);
-
-      const currentUser = data.find((data) => data.id === parseInt(id))
+      const Intid = parseInt(id)
+      const currentUser = data.find((data) => data.id === Intid)
 
         console.log("fyfyfyf",currentUser);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [inputField, setInputField] = useState({
-      id:id,
+      id:Intid,
       name: currentUser.name,
       email: currentUser.email,
       password:currentUser.password,

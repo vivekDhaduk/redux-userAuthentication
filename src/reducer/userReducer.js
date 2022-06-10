@@ -32,6 +32,7 @@ const userReducer = (state = [], action) => {
         ...state,
         auth: [state.auth = false],
         items: [...state.items, state.list[0]],
+        list: [{}]
 
     };
 
