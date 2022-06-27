@@ -27,7 +27,7 @@ const commonData = {
     }],
     auth:false,
     
-    list:{
+    Loged_in_user:{
       id:'',
       name:'',
       email:'',
