@@ -1,6 +1,4 @@
 import React from "react";
-// import Header from "../Components/Header";
-// import { useState, useEffect } from "react";
 import { FaHouseUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,13 +15,11 @@ const UersList = () => {
   const userEmail = useSelector((state)=>{
     return state.user.list
   })
-  console.log("user email",userEmail);
-  console.log(data);
   const navigate = useNavigate()
  
   function login (data) {
     let newUserdata = data
-    console.log("newUserdata",newUserdata);
+    console.log(newUserdata);
   }
   for(let i=0;i<data.length;i++){
     if (userEmail === data[i].email) {
@@ -31,10 +27,8 @@ const UersList = () => {
     } 
   }
 
-
   return (
     <div>
-      {/* <Header /> */}
       <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container">

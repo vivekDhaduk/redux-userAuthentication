@@ -14,15 +14,6 @@ function App() {
   const visiterdata = useSelector((state)=>{
     return state.user.auth[0]
   })
-  console.log("visitoe",visiterdata);
-
-  // if(visiterdata===true){
-  //   setUser(true)
-  //   console.log("djvbjvb",user);
-  // }else{
-  //   setUser(false)
-  // }
- 
 
   return (
     <>

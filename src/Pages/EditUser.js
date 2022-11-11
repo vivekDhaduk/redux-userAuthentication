@@ -11,15 +11,10 @@ const EditUser = () => {
     const data = useSelector((state)=>{
         return state.user.items
       })
-
-      console.log("eheheh",data.id);
     
       const {id} = useParams()
-      console.log(id);
       const Intid = parseInt(id)
       const currentUser = data.find((data) => data.id === Intid)
-
-        console.log("fyfyfyf",currentUser);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
